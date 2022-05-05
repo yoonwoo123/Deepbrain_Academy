@@ -6,7 +6,7 @@
 	"author": "Roldan Montilla Jr <roldanjrmontilla@gmail.com>",
 	"license": "MIT",
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev -p 3333",
 		"build": "next build",
 		"start": "next start",
 		"lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
@@ -24,6 +24,9 @@
 		]
 	},
 	"dependencies": {
+		"@emotion/react": "^11.9.0",
+		"@emotion/styled": "^11.8.1",
+		"@mui/material": "^5.6.4",
 		"clsx": "^1.1.1",
 		"dotenv": "^16.0.0",
 		"mongoose": "^6.3.1",

@@ -1,12 +1,10 @@
-import { Header, Layout, Modal, Pagination, Table } from "@/components";
+import { Header, Login, Layout, Navbar } from "@/components";
 
 function Landing() {
 	return (
 		<Layout>
-			<Header />
-			<Table />
-			<Pagination />
-			<Modal />
+			<Navbar />
+			<Login />
 		</Layout>
 	);
 }
