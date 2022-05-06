@@ -19,7 +19,7 @@ function* fetchEmployees() {
 	}
 }
 
-function* watchFetchEmployees() {
+export function* watchFetchEmployees() {
 	yield takeLatest(t.EMPLOYEE_FETCH_REQUESTED, fetchEmployees);
 }
 
@@ -47,7 +47,7 @@ function* addEmployee(action) {
 	}
 }
 
-function* watchAddEmployee() {
+export function* watchAddEmployee() {
 	yield takeLatest(t.EMPLOYEE_ADD_REQUESTED, addEmployee);
 }
 
@@ -71,7 +71,7 @@ function* deleteEmployee(action) {
 	}
 }
 
-function* watchRemoveEmployee() {
+export function* watchRemoveEmployee() {
 	yield takeLatest(t.EMPLOYEE_DELETE_REQUESTED, deleteEmployee);
 }
 
@@ -99,15 +99,6 @@ function* updateEmployee(action) {
 	}
 }
 
-function* watchUpdateEmployee() {
+export function* watchUpdateEmployee() {
 	yield takeLatest(t.EMPLOYEE_UPDATE_REQUESTED, updateEmployee);
-}
-
-export default function* rootSaga() {
-	yield all([
-		watchFetchEmployees(),
-		watchAddEmployee(),
-		watchRemoveEmployee(),
-		watchUpdateEmployee(),
-	]);
 }

@@ -1,5 +1,5 @@
 import Employee from "@/models/Employee";
-import "@/utils/dbConnect";
+import "@/models/dbConnect";
 
 export default async (req, res) => {
 	const {

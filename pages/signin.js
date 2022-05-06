@@ -4,7 +4,7 @@ function SignIn() {
 	return (
 		<Layout>
 			<Navbar />
-      <Register />
+     		 <Register />
 		</Layout>
 	);
 }
