@@ -22,7 +22,7 @@ const basicSettings = {
     subTitles: [
         '멤버관리'
     ],
-    urls: ["/employee/list"]
+    urls: ["/manage"]
 };
 
 export function Navbar() {
