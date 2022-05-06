@@ -2,7 +2,7 @@
 //export { default } from "./user";
 import {all} from "redux-saga/effects";
 import { watchFetchEmployees, watchAddEmployee, watchRemoveEmployee, watchUpdateEmployee } from "./employee";
-import { watchFetchUsers, watchAddUser, watchRemoveUser, watchUpdateUser } from "./user"
+import { watchFetchUsers, watchAddUser, watchRemoveUser, watchUpdateUser, watchLogin } from "./user"
 
 export default function* rootSaga() {
     yield all([
@@ -14,6 +14,8 @@ export default function* rootSaga() {
         watchFetchUsers(),
         watchAddUser(),
         watchRemoveUser(),
-        watchUpdateUser()
+        watchUpdateUser(),
+
+        watchLogin()
     ]);
 }

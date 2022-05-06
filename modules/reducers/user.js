@@ -51,6 +51,14 @@ const mainReducer = (state = initialState, action) => {
 				...state,
 				selectedUser,
 			};
+		case t.USER_LOGIN_SUCCEEDED:
+			return {
+				...state
+			}
+		case t.USER_LOGOUT_SUCCEEDED:
+			return {
+				...state
+			}
 		default:
 			return state;
 	}

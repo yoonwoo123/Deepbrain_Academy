@@ -33,3 +33,19 @@ export const setSelectedUser = (id) => {
 		payload: id,
 	};
 };
+
+export const loginUser = (user) => {
+	return {
+		type: t.USER_LOGIN_REQUESTED,
+		payload: user,
+	};
+};
+
+export const logoutUser = (user) => {
+	return {
+		type: t.USER_LOGOUT_REQUESTED,
+		payload: user,
+	};
+};
+
+

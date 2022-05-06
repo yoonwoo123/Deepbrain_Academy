@@ -23,14 +23,10 @@ export default async (req, res) => {
 			}
 		case "POST":
 			try {
-				console.log("POST 요청 받음");
-				console.log("req.body", req.body)
-				console.log("password", bcrypt.hashSync(req.body.password, 10))
 				const users = await User.create({
 					...req.body,
 					password: bcrypt.hashSync(req.body.password, 10)
 				});
-				console.log("users 생성", users);
 				return res.status(201).json({
 					success: true,
 					data: users,

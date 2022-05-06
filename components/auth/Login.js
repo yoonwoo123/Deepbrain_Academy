@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import { PersonAddSVG } from "@/icons";
 import { setModalOpen } from "@/modules";
 import Avatar from '@mui/material/Avatar';
@@ -13,6 +12,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import cx from "clsx";
 
 function Copyright(props) {
     return (
@@ -30,7 +33,12 @@ function Copyright(props) {
 const theme = createTheme();
 
 export function Login( {onSubmit, onChange} ) {
-	const dispatch = useDispatch();
+  const { register, handleSubmit, errors, reset, setValue } = useForm();
+  const dispatch = useDispatch();
+
+	const onSubmitHandler = (data) => {
+			dispatch(loginUser(data));
+	};
 
 	return (
         <ThemeProvider theme={theme}>

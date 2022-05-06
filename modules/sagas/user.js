@@ -55,7 +55,6 @@ function* addUser(action) {
 }
 
 export function* watchAddUser() {
-    console.log('watchAddUser')
 	yield takeLatest(t.USER_ADD_REQUESTED, addUser);
 }
 
@@ -109,4 +108,35 @@ function* updateUser(action) {
 
 export function* watchUpdateUser() {
 	yield takeLatest(t.USER_UPDATE_REQUESTED, updateUser);
+}
+
+function* loginUser(action) {
+	try {
+		const response = yield fetch("/api/users/login", {
+			method: "POST",
+			headers: {
+				"Content-Type" : "application/json",
+			},
+			body: JSON.stringify(action.payload)
+		});
+
+		if( response.status == 200) {
+			localStorage.setItem("user", JSON.stringify(action.payload));
+			const newUser = yield response.json();
+			yield put({
+				type: t.USER_LOGIN_SUCCEEDED,
+				payload: newUser.data
+			});
+		}
+
+	} catch (error) {
+		yield put({
+			type: t.USER_LOGIN_FAILED,
+			payload: error.message,
+		});
+	}
+}
+
+export function* watchLogin() {
+	yield takeLatest(t.USER_LOGIN_REQUESTED, loginUser);
 }
